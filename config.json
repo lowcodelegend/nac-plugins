@@ -1,6 +1,7 @@
 {
-    "group": "Starter Kit",
+    "group": "Ashley Presales",
     "plugins": {
-        "sk-hello-world" : "Hello World"
+        "sk-hello-world" : "Hello World",
+        "change-field-labels" : "Change Field Labels"
     }
 }

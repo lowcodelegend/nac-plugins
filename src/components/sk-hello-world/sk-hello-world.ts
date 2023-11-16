@@ -19,7 +19,7 @@ export class PageHighlight extends LitElement {
         return html`
             <div>
                 <h1>Hello world</h1>
-                <span style='color: ${this.color}'>${this.message}</span>
+                <span style='color: ${this.color}'>${this.message} was your message</span>
             </div>
         `
     }

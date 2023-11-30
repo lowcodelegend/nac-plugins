@@ -19,11 +19,12 @@ export const defaultEventArgs = <T>(args: T): EventData<T> => ({
 })
 
 interface FieldMapping {
-    name: string
+    name: string,
+    docgentag: string
 }
 
 interface FieldMappingValues {
-    [name: string]: string;    
+    [name: string]: object   
 }
 
 @customElement('plugin-elementname')
@@ -49,16 +50,25 @@ export class PageHighlight extends LitElement {
     }
 
     protected updateReturnValues = (e: Event) => {
+
         if (e.target) {
             const input: HTMLInputElement = e.target as HTMLInputElement;
-            this._fieldMappingValues[input.id] = input.value;
+            const fieldMapping = this._fieldMappings.find(fm => fm.name === input.id);
+
+            if (fieldMapping) {
+                this._fieldMappingValues[fieldMapping.docgentag] = {
+                    fieldName: input.id,
+                    value: input.value
+                };
+            }
+
             this.returnValues = JSON.stringify(this._fieldMappingValues);
             console.log(this.returnValues);
             const event = new CustomEvent('ntx-value-change', defaultEventArgs(this.returnValues));
             e.target.dispatchEvent(event);
             return event;
-        }
-        return undefined;
+            }
+            return undefined;
     };
 
     override render() {

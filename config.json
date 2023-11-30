@@ -2,6 +2,8 @@
     "group": "Ashley Presales",
     "plugins": {
         "sk-hello-world" : "Hello World",
-        "change-field-labels" : "Change Field Labels"
+        "change-field-labels" : "Change Field Labels",
+        "js-insert": "JS Insert",
+        "snake-game": "Snake Game"
     }
 }

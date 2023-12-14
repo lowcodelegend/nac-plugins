@@ -1,5 +1,5 @@
 import { type PluginContract } from '@nintex/form-plugin-contract'
-import { LitElement } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { config } from './js-insert.config';
 import { styles } from './js-insert.styles';
@@ -52,5 +52,12 @@ export class PageHighlight extends LitElement {
             script.textContent = this.jsCode;
             document.body.appendChild(script);
         }
+
+        //output js to control for visbility
+        return html`
+            <p style="font-family: monospace">
+                ${this.jsCode}
+            </p>
+        `
     }
 }
